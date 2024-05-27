@@ -5,6 +5,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { Store } from './redux/Store';
+import { Toaster } from 'react-hot-toast';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +13,7 @@ root.render(
     <BrowserRouter>
       <Provider store={Store}>
         <App />
-        {/*<Toaster />*/}
+        <Toaster />
       </Provider>
     </BrowserRouter>
   </React.StrictMode>

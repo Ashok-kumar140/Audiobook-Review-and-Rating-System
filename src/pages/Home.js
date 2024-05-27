@@ -7,7 +7,7 @@ import AudiobookCard from '../components/HomePage/AudiobookCard';
 import { audiobookEndPoints } from '../api/Api';
 
 
-const Home = ({ searchQuery,openFilterbar,setOpenFilterbar }) => {
+const Home = ({ searchQuery, openFilterbar, setOpenFilterbar }) => {
   const [audiobooks, setAudiobooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [filteredBooks, setFilteredBooks] = useState([]);
@@ -16,7 +16,7 @@ const Home = ({ searchQuery,openFilterbar,setOpenFilterbar }) => {
     ratingValue: "All",
     sortValue: "None"
   });
-  
+
 
   console.log("filterData", filterData);
 
@@ -111,7 +111,7 @@ const Home = ({ searchQuery,openFilterbar,setOpenFilterbar }) => {
         ratingValue: "All",
         sortValue: "None"
       });
-      setOpenFilterbar(!openFilterbar)
+    setOpenFilterbar(!openFilterbar)
 
   }
 
@@ -123,12 +123,14 @@ const Home = ({ searchQuery,openFilterbar,setOpenFilterbar }) => {
         <div className='w-11/12 mx-auto max-w-[1260px] flex  justify-between gap-0 lg:gap-7 xl:gap-10 text-white '>
 
           <Filterbar openFilterbar={openFilterbar} handleOnChange={handleOnChange} handleCancelFilter={handleCancelFilter} filterData={filterData} setOpenFilterbar={setOpenFilterbar} />
-          
+
           <div className={`w-full  grid grid-cols-1 2xl:grid-cols-2 xl:grid-cols-3`}>
 
             {
               loading ? (
-                <div>Loading...</div>
+                <div className='flex justify-center items-center ml-20'>
+                  <div className="spinner"></div>
+                </div>
               ) : (
                 <>
                   {

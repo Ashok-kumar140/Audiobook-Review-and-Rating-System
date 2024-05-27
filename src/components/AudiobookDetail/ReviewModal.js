@@ -37,6 +37,7 @@ const ReviewModal = ({ setReviewModal, bookId, fetchAllReviews }) => {
         } catch (error) {
             console.log("Error while calling create review API: ", error);
             toast.error(error?.response?.data?.message)
+            setReviewModal(false);
         }
 
     }

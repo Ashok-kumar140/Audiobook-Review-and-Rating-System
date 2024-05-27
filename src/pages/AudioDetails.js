@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { audiobookEndPoints, reviewAndRatingEndPoints } from '../api/Api';
 import ReviewModal from '../components/AudiobookDetail/ReviewModal';
@@ -8,6 +8,8 @@ import ReactStars from 'react-stars';
 import { FaStar } from "react-icons/fa"
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
+import { useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
 const AudioDetails = () => {
 
     const { book_id } = useParams();
@@ -16,6 +18,8 @@ const AudioDetails = () => {
     const [showMore, setShowMore] = useState(false);
     const [reviewModal, setReviewModal] = useState(false);
     const [allReviews, setAllReviews] = useState({});
+    const { user } = useSelector((state) => state.profile);
+    const navigate = useNavigate();
     // console.log(book_id)
 
 
@@ -37,6 +41,19 @@ const AudioDetails = () => {
         })();
         fetchAllReviews();
     }, []);
+
+    const handleReview = async (req, res) => {
+
+        if (user) {
+            setReviewModal(true);
+        }
+        else {
+            toast.error("You have to be logged to give rating")
+            navigate('/login');
+
+        }
+
+    }
 
     const averageRating = (allReviews) => {
         let rating = allReviews.reduce((accumulator, review) => {
@@ -65,7 +82,9 @@ const AudioDetails = () => {
         <>
             {
                 loading ? (
-                    <span>Loading...</span>
+                    <div className='flex items-center justify-center mt-[50%]'>
+                        <div className="spinner"></div>
+                    </div>
                 ) : (
                     <div className='w-11/12  min-h-screen mx-auto max-w-[1260px] flex-col items-center justify-between gap-12 text-black bg-white '>
 
@@ -73,7 +92,7 @@ const AudioDetails = () => {
                             <div className='flex items-center justify-center'>
                                 <div className='h-[250px] w-[360px] mt-7 rounded-md '>
                                     <img className='h-full w-full object-cover rounded-md' src={bookDetails?.thumbnail} alt="" />
-                                </div> 
+                                </div>
                             </div>
                             <div className='flex items-center justify-center'>
                                 <div className="w-full sm:px-3 md:w-[60%] my-3 ">
@@ -91,7 +110,7 @@ const AudioDetails = () => {
                                         src={bookDetails?.audioUrl}
                                         onPlay={e => console.log("onPlay")}
                                         showFilledVolume={true}
-                                    
+
                                     />
                                 </div>
                             </div>
@@ -138,7 +157,7 @@ const AudioDetails = () => {
                                         </div>
                                         <div>
                                             <button className='bg-[#dc2626] p-2 rounded-md cursor-pointer'
-                                                onClick={() => setReviewModal(true)}
+                                                onClick={handleReview}
                                             >
                                                 Add Review
                                             </button>

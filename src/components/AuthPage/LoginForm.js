@@ -50,7 +50,7 @@ const LoginForm = () => {
 
             toast.success("Logged In Successfully");
             dispatch(setToken(data?.user?.token));
-            
+
             dispatch(setUser(data?.user))
             localStorage.setItem("token", JSON.stringify(data?.user?.token));
             localStorage.setItem("user", JSON.stringify(data?.user));
@@ -109,7 +109,7 @@ const LoginForm = () => {
                     className="absolute right-3 top-[38px] z-[10] cursor-pointer"
                 >
                     {showPassword ? (
-                        <MdOutlineRemoveRedEye fontSize={24} fill="#000000"  className='text-black'/>
+                        <MdOutlineRemoveRedEye fontSize={24} fill="#000000" className='text-black' />
                     ) : (
                         <BsEyeSlash fontSize={24} fill="#000000" className='text-black' />
                     )}
@@ -126,6 +126,7 @@ const LoginForm = () => {
             >
                 Sign In
             </button>
+            <div onClick={()=>navigate('/signup')} className=' cursor-pointer text-center'>Create your account →</div>
         </form>
     )
 }

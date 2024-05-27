@@ -91,7 +91,7 @@ const SignupForm = () => {
                 <div className="flex gap-x-4">
                     <label>
                         <p className="label-style">
-                            First Name <sup className="text-pink-200">*</sup>
+                            First Name <sup className="text-pink-500">*</sup>
                         </p>
                         <input
                             required
@@ -106,7 +106,7 @@ const SignupForm = () => {
                     </label>
                     <label>
                         <p className="label-style">
-                            Last Name <sup className="text-pink-200">*</sup>
+                            Last Name <sup className="text-pink-500">*</sup>
                         </p>
                         <input
                             required
@@ -122,7 +122,7 @@ const SignupForm = () => {
                 </div>
                 <label className="w-full">
                     <p className="label-style">
-                        Email Address <sup className="text-pink-200">*</sup>
+                        Email Address <sup className="text-pink-500">*</sup>
                     </p>
                     <input
                         required
@@ -138,7 +138,7 @@ const SignupForm = () => {
                 <div className="flex flex-col md:flex-row gap-x-4">
                     <label className="relative">
                         <p className="label-style">
-                            Create Password <sup className="text-pink-200">*</sup>
+                            Create Password <sup className="text-pink-500">*</sup>
                         </p>
                         <input
                             required
@@ -163,7 +163,7 @@ const SignupForm = () => {
                     </label>
                     <label className="relative">
                         <p className="label-style">
-                            Confirm Password <sup className="text-pink-200">*</sup>
+                            Confirm Password <sup className="text-pink-500">*</sup>
                         </p>
                         <input
                             required
@@ -192,6 +192,8 @@ const SignupForm = () => {
                 >
                     Create Account
                 </button>
+            <div onClick={()=>navigate('/login')} className=' cursor-pointer text-center'>← Already have account?</div>
+
             </form>
         </div>
     )
