@@ -33,7 +33,7 @@ exports.resetPasswordToken = async (req, res) => {
             tokenExpires: Date.now() + 5 * 60 * 1000,
         }, { new: true });
 
-        const url = `http://my-kukufm-audiolibrary/update-password/${token}`;
+        const url = `https://audiobook-review-and-rating-system-pzxo.vercel.app/update-password/${token}`;
 
         const mailResponse = sendMailer(email, "For updating your password", `You can update your password in this link: ${url}`);
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import SignupForm from './SignupForm';
 import LoginForm from './LoginForm';
-import { FcGoogle } from "react-icons/fc";
 import { useSelector } from 'react-redux';
 
 

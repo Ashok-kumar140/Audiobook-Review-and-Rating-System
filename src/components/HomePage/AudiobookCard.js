@@ -32,7 +32,7 @@ const AudiobookCard = ({audiobook,fetchAudiobooks}) => {
     }
   }
   return (
-    <div className="m-3 cursor-pointer flex  w-[280px] h-[400px] max-w-80 flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md"
+    <div className="m-3 cursor-pointer flex  h-[400px] max-w-80 flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md"
       onClick={() => navigate(`/audiobook/${audiobook._id}`)}
     >
       <div className=" mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">

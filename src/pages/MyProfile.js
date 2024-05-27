@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { audiobookEndPoints } from '../api/Api';
 import AudiobookCard from '../components/HomePage/AudiobookCard';
-// import { FormateDate } from "../../helpers/FormateDate";
 
 const MyProfile = () => {
 
@@ -38,6 +37,7 @@ const MyProfile = () => {
             element.audiobookRatingAndReviews.forEach(item => {
                 averageRating += item.rating;
             })
+            console.log("avr",averageRating);
             if (averageRating !== 0) {
 
                 averageRating = averageRating / element.audiobookRatingAndReviews.length;
@@ -49,6 +49,7 @@ const MyProfile = () => {
         setUserBooks(booksArray);
 
     }
+    console.log("BOOKS",userBooks)
     return (
         <div className='flex justify-center items-center'>
             <div className='text-black w-11/12 max-w-[860px]'>

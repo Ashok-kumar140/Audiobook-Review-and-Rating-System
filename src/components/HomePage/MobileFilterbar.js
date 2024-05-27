@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from 'react'
 import { genreData } from '../../data/genreData'
 import { ratingData } from '../../data/genreData'

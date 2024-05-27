@@ -120,7 +120,7 @@ const Home = ({ searchQuery, openFilterbar, setOpenFilterbar }) => {
   return (
     <>
       <div className={`w-screen min-h-screen bg-[#e2e8f0] flex flex-col font-inter `}>
-        <div className='w-11/12 mx-auto max-w-[1260px] flex  justify-between gap-0 lg:gap-7 xl:gap-10 text-white '>
+        <div className=' w-full md:w-11/12 mx-auto max-w-[1260px] flex  justify-between gap-0 lg:gap-7 xl:gap-10 text-white '>
 
           <Filterbar openFilterbar={openFilterbar} handleOnChange={handleOnChange} handleCancelFilter={handleCancelFilter} filterData={filterData} setOpenFilterbar={setOpenFilterbar} />
 

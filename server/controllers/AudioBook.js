@@ -61,8 +61,10 @@ exports.getFullDetailsOfAudiobook = async (req, res) => {
 exports.userLikedbooks = async (req, res) => {
     try {
         const userId = req.user.id;
+        console.log("H")
 
-        const response = await AudioBook.find();
+        const response = await AudioBook.find({}).populate("audiobookRatingAndReviews");
+        console.log(response);
         let books = [];
         for (let i = 0; i < response.length; i++) {
 
